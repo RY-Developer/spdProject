@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="libraryTable">
+    <library name="php-7.3">
+      <CLASSES />
+      <JAVADOC />
+      <NATIVE>
+        <root url="file://E:/laragon/bin/php/php-7.3.9-Win32-VC15-x64" />
+      </NATIVE>
+      <SOURCES />
+    </library>
+  </component>
+</project>

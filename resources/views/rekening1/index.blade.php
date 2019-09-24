@@ -10,7 +10,7 @@
 							<!-- TABLE HOVER -->
 							<div class="panel">
 								<div class="panel-heading">
-                  <h3 class="panel-title">Tabel Referensi Rekening 1</h3>
+                  <h3 class="panel-title">Referensi Rekening 1</h3>
                                     <form class="navbar-form navbar-right" action="/rekening1" method="GET">
                                         <div class="input-group">
                                             <input name="cari" type="text" value="" class="form-control"

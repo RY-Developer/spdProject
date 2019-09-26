@@ -15,7 +15,7 @@ class spdController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')) {
-            $data = ta_spd::where('nm_unit','LIKE','%'.$request->cari. '%')->paginate(10);
+            $data = ta_spd::where('nm_penandatanganan','LIKE','%'.$request->cari. '%')->paginate(10);
         }else{
             $data = ta_spd::paginate(10);
         }

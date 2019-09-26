@@ -10,7 +10,7 @@
                         <!-- TABLE HOVER -->
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Tabel SPD Rincian</h3>
+                                <h3 class="panel-title">Tabel SPD</h3>
                                 <div class="right">
                                     <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i
                                             class="lnr lnr-plus-circle"></i></button>
@@ -28,6 +28,9 @@
                                         <th>Kode Unit</th>
                                         <th>Kode Sub</th>
                                         <th width="">Uraian</th>
+                                        <th>Nama Penandatangan</th>
+                                        <th>NIP Penandatangan</th>
+                                        <th>Jabatan Penandatangan</th>
                                         <th width="100">AKSI</th>
                                     </tr>
                                     </thead>
@@ -46,10 +49,13 @@
                                             <td>{{$spd->kd_unit}}</td>
                                             <td>{{$spd->kd_sub}}</td>
                                             <td>{{$spd->uraian}}</td>
+                                            <td>{{$spd->nm_penandatanganan}}</td>
+                                            <td>{{$spd->nip_penandatanganan}}</td>
+                                            <td>{{$spd->jbt_penandatanganan}}</td>
                                             <td>
-                                                <a href="/spdrincian/{{$spd->id}}/edit" <span
+                                                <a href="/spd/{{$spd->id}}/edit" <span
                                                     class="lnr lnr-pencil"> </span></a>
-                                                <a href="/urusan/{{$spd->id}}/delete" <span class="lnr lnr-exit"
+                                                <a href="/spd/{{$spd->id}}/delete" <span class="lnr lnr-exit"
                                                                                                 onclick="return confirm('Yakin Hapus Data!!')"> </span></a>
                                             
                                             </td>
@@ -77,24 +83,68 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Tambah Data Urusan 1</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> Tambah Data SPD</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    
-                    <form action="/urusan/create" method="post">
+                    <form action="/spd/create" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Kode Urusan</label>
-                            <input type="text" name="kd_urusan" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" placeholder="Kode Rekening 1">
+                            <label for="exampleInputEmail1">TAHUN</label>
+                            <input type="number" name="tahun" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Isikan Periode Tahun">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama Urusan</label>
-                            <input type="text" name="nm_urusan" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" placeholder="Kode Rekening 2">
+                            <label for="exampleInputEmail1">No SPD</label>
+                            <input type="text" name="no_spd" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Nomor SPD">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tgl SPD</label>
+                            <input type="date" name="tgl_spd" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Tanggal SPD">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kode Urusan</label>
+                            <input type="number" name="kd_urusan" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Kode Urusan">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kode Bidang</label>
+                            <input type="number" name="kd_bidang" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Kode Bidang">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kode Unit</label>
+                            <input type="number" name="kd_unit" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Kode Unit">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kode Sub Unit</label>
+                            <input type="number" name="kd_sub" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Kode Sub Unit">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Uraian</label>
+                            <input type="text" name="uraian" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="uraian">
+                        </div>                          
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Pejabat Penandatangan</label>
+                            <input type="text" name="nm_penandatangan" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Pejabat Penandatangan">
+                        </div>                                                  
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nip Penandatangan</label>
+                            <input type="text" name="nip_penandatangan" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Nip Penandatangan">
+                        </div>                          
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Jabatan Penandatangan</label>
+                            <input type="text" name="jbt_penandatangan" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Jabatan Penandatangan">
                         </div>
                 </div>
                 <div class="modal-footer">
